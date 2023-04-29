@@ -3,7 +3,7 @@ import UserModel, { User } from "@/modules/users/models/users.model";
 import jwt from "jsonwebtoken";
 import UserService from "@modules/users/services/users.service";
 import { GenericService } from "@/common/interfaces/interface";
-import { JWT_EXPIRE_TOKEN, JWT_TOKEN } from "@config";
+import { JWT_EXPIRE_TOKEN, JWT_TOKEN } from "common/config";
 
 class AuthService implements GenericService {
   public userModel = UserModel;

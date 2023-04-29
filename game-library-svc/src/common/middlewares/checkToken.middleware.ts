@@ -1,6 +1,6 @@
 import { APIError } from "@/common/errors/APIError";
 import jwt from "jsonwebtoken";
-import { JWT_TOKEN } from "@config";
+import { JWT_TOKEN } from "common/config";
 
 export const checkToken = (req, _res, next) => {
   const token = req.headers.authorization;

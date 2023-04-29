@@ -4,7 +4,7 @@ import express from "express";
 import helmet from "helmet";
 import hpp from "hpp";
 import { connect } from "mongoose";
-import { NODE_ENV, PORT, ORIGIN, CREDENTIALS } from "@config";
+import { NODE_ENV, PORT, ORIGIN, CREDENTIALS } from "common/config";
 import { dbConnection } from "@databases";
 import { Routes } from "@/common/interfaces/interface";
 import errorMiddleware from "@/common/middlewares/error.middleware";
