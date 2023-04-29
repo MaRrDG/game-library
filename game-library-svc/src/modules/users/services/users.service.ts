@@ -37,7 +37,7 @@ class UserService implements GenericService {
         params.resourceId,
         data,
       );
-      if (!updateUserById) return new APIError(409, "User doesn't exist");
+      if (!updateUserById) throw new APIError(409, "User doesn't exist");
 
       return updateUserById;
     } catch (e) {
@@ -57,7 +57,7 @@ class UserService implements GenericService {
       const validation = user.validateSync();
 
       if (validation?.errors)
-        return new APIError(409, `Bad Request - Missing required fields`);
+        throw new APIError(409, `Bad Request - Missing required fields`);
 
       await this.isEmailAvailable(data.email, params.resourceId);
 
@@ -65,7 +65,7 @@ class UserService implements GenericService {
         params.resourceId,
         data,
       );
-      if (!updateUserById) return new APIError(409, "User doesn't exist");
+      if (!updateUserById) throw new APIError(409, "User doesn't exist");
 
       return updateUserById;
     } catch (e) {
