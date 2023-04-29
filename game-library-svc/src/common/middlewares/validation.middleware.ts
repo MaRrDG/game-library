@@ -1,7 +1,7 @@
 import { plainToClass } from "class-transformer";
 import { validate, ValidationError } from "class-validator";
 import { RequestHandler } from "express";
-import { APIError } from "@/generic/APIError";
+import { APIError } from "@/common/errors/APIError";
 
 const validationMiddleware = (
   type: any,

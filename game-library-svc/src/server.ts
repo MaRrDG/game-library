@@ -1,7 +1,7 @@
 import App from "@/app";
-import IndexRoute from "@/generic/routes/index.route";
-import validateEnv from "@utils/validateEnv";
-import { endpoints } from "@modules/index";
+import IndexRoute from "@/common/indexes/index.route";
+import validateEnv from "@/common/utils/validateEnv";
+import { endpoints } from "@/modules";
 
 validateEnv();
 

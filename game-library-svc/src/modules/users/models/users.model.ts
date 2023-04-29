@@ -1,5 +1,5 @@
-import { DocumentResult } from "@/generic/models/generic.model";
 import { model, Schema, Document } from "mongoose";
+import {DocumentResult} from "@/common/interfaces/interface";
 
 export interface User extends DocumentResult<User> {
   _id: string;

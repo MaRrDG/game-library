@@ -1,10 +1,14 @@
 import { NextFunction, Request, Response } from "express";
 import UserService from "@modules/users/services/users.service";
 import { User } from "@modules/users/models/users.model";
-import { GenericController } from "@generic/models/generic.model";
+import { UsersFactory } from "@modules/users/factories/users.factory";
 
-class UsersController implements GenericController {
-  public userService = new UserService();
+class UsersController {
+  private readonly userService: UserService;
+
+  constructor() {
+    this.userService = UsersFactory.createUserService();
+  }
 
   public getAll = async (req: Request, res: Response, next: NextFunction) => {
     try {

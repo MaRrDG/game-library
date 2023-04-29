@@ -1,14 +1,17 @@
 import { Router } from "express";
 import UsersController from "@modules/users/controllers/users.controller";
-import { Routes } from "@generic/interfaces/routes.interface";
-import { checkToken } from "@/middlewares/checkToken.middleware";
+import { checkToken } from "@/common/middlewares/checkToken.middleware";
+import { UsersFactory } from "@modules/users/factories/users.factory";
 
-class UsersRoute implements Routes {
-  public path = "/users";
-  public router = Router();
-  public usersController = new UsersController();
+class UsersRoute {
+  public router: Router;
+  private readonly path = "/users";
+  private readonly usersController: UsersController;
 
   constructor() {
+    this.router = Router();
+    this.usersController = UsersFactory.createUserController();
+
     this.initializeRoutes();
   }
 

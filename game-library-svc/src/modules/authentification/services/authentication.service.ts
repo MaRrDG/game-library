@@ -1,16 +1,17 @@
-import { APIError } from "@/generic/APIError";
+import { APIError } from "@/common/errors/APIError";
 import UserModel, { User } from "@/modules/users/models/users.model";
 import jwt from "jsonwebtoken";
 import UserService from "@modules/users/services/users.service";
-import { GenericService } from "@generic/models/generic.model";
+import { GenericService } from "@/common/interfaces/interface";
+import { JWT_EXPIRE_TOKEN, JWT_TOKEN } from "@config";
 
 class AuthService implements GenericService {
   public userModel = UserModel;
   public userService = new UserService();
 
   private generateToken(data?: object) {
-    return jwt.sign(data || {}, process.env.JWT_TOKEN, {
-      expiresIn: process.env.JWT_EXPIRE_TOKEN,
+    return jwt.sign(data || {}, JWT_TOKEN, {
+      expiresIn: JWT_EXPIRE_TOKEN,
     });
   }
 

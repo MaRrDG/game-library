@@ -1,4 +1,9 @@
-import { NextFunction, Request, Response } from "express";
+import { Router, NextFunction, Request, Response } from "express";
+
+export interface Routes {
+  path?: string;
+  router: Router;
+}
 
 export interface DocumentResult<T> {
   _doc: T;

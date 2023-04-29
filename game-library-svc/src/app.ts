@@ -1,22 +1,22 @@
-import compression from 'compression';
-import cors from 'cors';
-import express from 'express';
-import helmet from 'helmet';
-import hpp from 'hpp';
-import { connect } from 'mongoose';
-import { NODE_ENV, PORT, ORIGIN, CREDENTIALS } from '@config';
-import { dbConnection } from '@databases';
-import { Routes } from '@/generic/interfaces/routes.interface';
-import errorMiddleware from '@middlewares/error.middleware';
+import compression from "compression";
+import cors from "cors";
+import express from "express";
+import helmet from "helmet";
+import hpp from "hpp";
+import { connect } from "mongoose";
+import { NODE_ENV, PORT, ORIGIN, CREDENTIALS } from "@config";
+import { dbConnection } from "@databases";
+import { Routes } from "@/common/interfaces/interface";
+import errorMiddleware from "@/common/middlewares/error.middleware";
 
 class App {
   public app: express.Application;
   public env: string;
   public port: string | number;
 
-  constructor(routes: Routes[]) {
+  constructor(routes) {
     this.app = express();
-    this.env = NODE_ENV || 'development';
+    this.env = NODE_ENV || "development";
     this.port = PORT || 3000;
 
     this.connectToDatabase();
@@ -51,8 +51,8 @@ class App {
   }
 
   private initializeRoutes(routes: Routes[]) {
-    routes.forEach(route => {
-      this.app.use('/', route.router);
+    routes.forEach((route) => {
+      this.app.use("/", route.router);
     });
   }
 

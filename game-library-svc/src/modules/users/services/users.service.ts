@@ -1,6 +1,6 @@
-import { APIError } from "@/generic/APIError";
+import { APIError } from "@/common/errors/APIError";
 import UserModel, { User } from "@/modules/users/models/users.model";
-import { GenericService, RequestData } from "@generic/models/generic.model";
+import { GenericService, RequestData } from "@/common/interfaces/interface";
 
 class UserService implements GenericService {
   public users = UserModel;
@@ -37,7 +37,7 @@ class UserService implements GenericService {
         params.resourceId,
         data,
       );
-      if (!updateUserById) throw new APIError(409, "User doesn't exist");
+      if (!updateUserById) return new APIError(409, "User doesn't exist");
 
       return updateUserById;
     } catch (e) {
@@ -57,7 +57,7 @@ class UserService implements GenericService {
       const validation = user.validateSync();
 
       if (validation?.errors)
-        throw new APIError(409, `Bad Request - Missing required fields`);
+        return new APIError(409, `Bad Request - Missing required fields`);
 
       await this.isEmailAvailable(data.email, params.resourceId);
 
@@ -65,7 +65,7 @@ class UserService implements GenericService {
         params.resourceId,
         data,
       );
-      if (!updateUserById) throw new APIError(409, "User doesn't exist");
+      if (!updateUserById) return new APIError(409, "User doesn't exist");
 
       return updateUserById;
     } catch (e) {
