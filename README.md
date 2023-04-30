@@ -1,4 +1,4 @@
-# Library Games
+# Library Games - W.I.P
 
 Library Games is a dynamic, user-friendly, and open-source web application designed to cater to gamers' needs worldwide. The application functions similarly to Steam and Epic Games, with the ability to purchase games, manage your game library, and personalize your user profile.
 
