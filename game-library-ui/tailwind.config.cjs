@@ -5,7 +5,16 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#3C9909"
+      },
+      fontFamily: {
+        josefin: ["Josefin Sans", "sans-serif"],
+        roboto: ["roboto", "sans-serif"],
+        ubuntu: ["ubuntu", "sans-serif"]
+      }
+    },
   },
   plugins: [],
 }

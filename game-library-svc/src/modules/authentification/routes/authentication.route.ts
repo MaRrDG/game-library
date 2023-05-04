@@ -18,10 +18,6 @@ class AuthRoute {
     this.router.post(`${this.path}/login`, this.authController.getById);
     this.router.post(`${this.path}/register`, this.authController.post);
   }
-
-  public getRouter(): Router {
-    return this.router;
-  }
 }
 
 export default AuthRoute;

@@ -6,11 +6,11 @@ import "./index.css";
 
 const App = () => {
   return (
-    <>
+    <div className="bg-[#2E3032]">
       <Suspense fallback={<>Loading..</>}>
         <RouterProvider router={router} />
       </Suspense>
-    </>
+    </div>
   );
 };
 
